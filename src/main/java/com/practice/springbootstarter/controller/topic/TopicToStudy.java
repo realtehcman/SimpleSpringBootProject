@@ -1,14 +1,14 @@
-package com.practice.springbootstarter.controller.topics;
+package com.practice.springbootstarter.controller.topic;
 
-public class TopicsToStudy {
+public class TopicToStudy {
     private int _id;
     private String topic;
     private String importance;
 
-    public TopicsToStudy() {
+    public TopicToStudy() {
     }
 
-    public TopicsToStudy(int _id, String topic, String importance) {
+    public TopicToStudy(int _id, String topic, String importance) {
         this._id = _id;
         this.topic = topic;
         this.importance = importance;
