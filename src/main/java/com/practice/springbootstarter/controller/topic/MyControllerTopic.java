@@ -1,25 +1,43 @@
 package com.practice.springbootstarter.controller.topic;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 /*MAPPING HAPPENS HERE.
-* Also, I inject the instance into the field*/
+ * Also, I inject the instance into the field*/
 
 @RestController
 public class MyControllerTopic {
 
     @Autowired
-    private TopicService myServerForTopic;
+    private TopicService topicService;
 
     @RequestMapping("/topics")
     public TopicService gettingTopics() {
-        return myServerForTopic;
+        return topicService;
     }
 
-    @RequestMapping("/topics/{topicName}")
-    public TopicToStudy gettingTopics(@PathVariable String topicName) {
-        return myServerForTopic.getTopic(topicName);
+    @RequestMapping("/topics/{topic}")
+    public TopicToStudy gettingTopics(@PathVariable String topic) {
+        return topicService.get(topic);
     }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/topics")
+    public void addTopic(@RequestBody TopicToStudy newTopic) {
+        topicService.add(newTopic);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/topics/{topicName}")
+    public void updateTopic(@RequestBody TopicToStudy newTopic, @PathVariable String topicName) {
+        topicService.update(topicName, newTopic);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "/topics/{topicName}")
+    public void deleteTopic(@PathVariable String topicName) {
+        topicService.delete(topicName);
+    }
+
+
 }
+
+/*ERRORS 415, 500 IN POSTMAN; SOLUTION
+* Add `Content-Type`: `application/json` and `Accept`: `application/json`  In the POSTMAN -> headers -> bulk edit */
