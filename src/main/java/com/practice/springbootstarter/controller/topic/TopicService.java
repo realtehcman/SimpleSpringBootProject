@@ -15,7 +15,10 @@ public class TopicService {
         listOfTopics = new ArrayList<>(Arrays.asList(
                 new TopicToStudy(0, "REST_API", "very"),
                 new TopicToStudy(1, "JSON", "medium"),
-                new TopicToStudy(2, "servlets", "medium")
+                new TopicToStudy(2, "servlets", "medium"),
+
+                new TopicToStudy(3, "qqq", "www")
+
         ));
     }
 
@@ -44,7 +47,7 @@ public class TopicService {
     public void delete(String topicName){
         listOfTopics.forEach(t -> {
             if (t.getTopic().equals(topicName))
-                listOfTopics.remove(t.get_id());
+                listOfTopics.remove(t);
         });
     }
 }

@@ -1,21 +1,21 @@
 package com.practice.springbootstarter.controller.topic;
 
 public class TopicToStudy {
-    private int _id;
+    private int id;
     private String topic;
     private String importance;
 
     public TopicToStudy() {
     }
 
-    public TopicToStudy(int _id, String topic, String importance) {
-        this._id = _id;
+    public TopicToStudy(int id, String topic, String importance) {
+        this.id = id;
         this.topic = topic;
         this.importance = importance;
     }
 
-    public int get_id() {
-        return _id;
+    public int getId() {
+        return id;
     }
 
     public String getTopic() {
@@ -25,6 +25,4 @@ public class TopicToStudy {
     public String getImportance() {
         return importance;
     }
-
-
 }

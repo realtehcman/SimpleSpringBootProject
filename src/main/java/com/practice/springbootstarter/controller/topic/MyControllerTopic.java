@@ -2,6 +2,8 @@ package com.practice.springbootstarter.controller.topic;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 /*MAPPING HAPPENS HERE.
  * Also, I inject the instance into the field*/
 
@@ -12,8 +14,8 @@ public class MyControllerTopic {
     private TopicService topicService;
 
     @RequestMapping("/topics")
-    public TopicService gettingTopics() {
-        return topicService;
+    public List<TopicToStudy> gettingTopics() {
+        return topicService.getListOfTopics();
     }
 
     @RequestMapping("/topics/{topic}")
@@ -35,8 +37,6 @@ public class MyControllerTopic {
     public void deleteTopic(@PathVariable String topicName) {
         topicService.delete(topicName);
     }
-
-
 }
 
 /*ERRORS 415, 500 IN POSTMAN; SOLUTION
