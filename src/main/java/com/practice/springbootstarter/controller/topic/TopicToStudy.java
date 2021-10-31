@@ -14,6 +14,7 @@ public class TopicToStudy {
         this.importance = importance;
     }
 
+//    TO CHANGE THE JSON VARIABLES (THE OUTPUT ON THE LOCALHOST) CHANGE THE GETTERS VARIABLE NAMES!!!
     public int getId() {
         return id;
     }
